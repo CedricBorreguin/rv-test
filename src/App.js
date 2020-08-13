@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./css/App.css";
+import { AppBar, Typography } from "@material-ui/core";
+import TabsLoader from "./components/TabsLoader";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: "100vh",
+  },
+}));
 
 function App() {
+
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={classes.root}>
+      <AppBar position="sticky" className="AppBar">
+        <Typography variant="h1" className="app-title">
+          Menu
+        </Typography>
+      </AppBar>
+      <TabsLoader />
+    </main>
   );
 }
 
