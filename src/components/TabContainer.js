@@ -9,18 +9,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TabContainer(props) {
+function TabContainer({value, index, className, expandSubcategories, products, subcategories}) {
   const classes = useStyles();
 
   return (
-    <div hidden={props.value !== props.index } component="div" className={props.className}>
-      {props.products.map((item) => (
+    <div hidden={value !== index } component="div" className={className}>
+      {products.map((item) => (
           <div className={classes.root}>
             <ProductCard key={item.id} title={item.translations.en.title} subtitle={item.translations.es.title} />
           </div>
           ))}
-      {props.subcategories.map((item) => (
-            <ExpandableList initiallyExpanded={props.expandSubcategories} key={item.id} title={item.translations.en.title +
+      {subcategories.map((item) => (
+            <ExpandableList initiallyExpanded={expandSubcategories} key={item.id} title={item.translations.en.title +
               " (" +
               item.translations.es.title +
               ")"} products={item.products}/>

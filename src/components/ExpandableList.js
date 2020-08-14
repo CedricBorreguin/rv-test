@@ -56,7 +56,7 @@ function ExpandableList(props) {
 
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} hidden={Object.values(props.products).length===0}>
       <div className={classes.row}>
         <Typography className={clsx(classes.title, {
             [classes.titleOpen]: expanded,

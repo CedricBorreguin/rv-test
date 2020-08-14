@@ -1,9 +1,9 @@
 import React from "react";
 import TabsMenuContainer from "./TabsMenuContainer";
-import APIRequest, { apiStates } from "./APIRequest";
+import APIRequest, { apiStates } from "../APIRequest";
 import { Typography } from "@material-ui/core";
+import {DATA_URL} from "../constants";
 
-const DATA_URL = "https://api.adminsite.appsinti.com/menu/product";
 
 function TabsLoader() {
   const { state, error, data } = APIRequest(DATA_URL);
