@@ -27,15 +27,15 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-function ProductCard(props) {
+function ProductCard({title, subtitle}) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent className={classes.cardContent}>
-          <Typography className={classes.title} component="h4">{props.title}</Typography>
-          <Typography className={classes.subtitle} component="p">{props.subtitle}</Typography>
+          <Typography className={classes.title} component="h4">{title}</Typography>
+          <Typography className={classes.subtitle} component="p">{subtitle}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>

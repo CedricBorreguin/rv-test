@@ -45,10 +45,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ExpandableList(props) {
+function ExpandableList({initiallyExpanded, products, title}) {
   const classes = useStyles();
 
-  const [expanded, setExpanded] = React.useState(props.initiallyExpanded);
+  const [expanded, setExpanded] = React.useState(initiallyExpanded);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -56,11 +56,11 @@ function ExpandableList(props) {
 
 
   return (
-    <div className={classes.root} hidden={Object.values(props.products).length===0}>
+    <div className={classes.root} hidden={Object.values(products).length===0}>
       <div className={classes.row}>
         <Typography className={clsx(classes.title, {
             [classes.titleOpen]: expanded,
-          })} component="h3">{props.title}</Typography>
+          })} component="h3">{title}</Typography>
         <div className={classes.spacer}></div>
         <hr className={classes.hr} />
         <IconButton
@@ -73,7 +73,7 @@ function ExpandableList(props) {
         </IconButton>
       </div>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        {props.products.map((item) => (
+        {products.map((item) => (
             <ProductCard key={item.id} title={item.translations.en.title} subtitle={item.translations.es.title}/>
           ))}
       </Collapse>
